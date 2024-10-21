@@ -1,0 +1,8 @@
+$body-bg: #000;
+$body-color: #FFF;
+$primary-color: #afafaf;
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+body{
+    background-color: $primary-color;
+}
