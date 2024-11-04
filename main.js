@@ -14,7 +14,7 @@ function showList() {
     let ul = document.getElementById('customer-list-data');
     ul.innerHTML = 'Lista klientow';
     for (let customer of customersList) {
-        ul.innerHTML += `<li>${customer.nazwaFirmy} <button class="btn btn-primary" onclick=showCustomer(`${customer.id}`)</li>`
+        ul.innerHTML += `<li>${customer.nazwaFirmy} <button class="btn btn-primary" onclick=showCustomer('${customer.id}')>edytuj</button></li>`;
     }
 
 }
@@ -23,8 +23,12 @@ var customersList = [];
 
 function showCustomer(customerId) {
     showForm();
-    let customer = customersList.filter()
-    addDataToForm();
+    let customer = customersList.find(c => c.id === customerId)
+    if (customer) {
+        addDataToForm(customer);
+    } else {
+        console.error('Customer not found');
+    }
 }
 
 function saveData(event) {
