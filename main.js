@@ -14,7 +14,7 @@ function showList() {
     let ul = document.getElementById('customer-list-data');
     ul.innerHTML = 'Lista klientow';
     for (let customer of customersList) {
-        ul.innerHTML += `<li>${customer.getData()} <button class="btn btn-primary" onclick=showCustomer('${customer.getData()}')>edytuj</button></li>`;
+        ul.innerHTML += `<li>${customer.getData()} ${customer.getAddress()} <button class="btn btn-primary" onclick=showCustomer('${customer.id}')>edytuj</button></li>`;
     }
 
 }
