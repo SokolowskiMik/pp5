@@ -14,7 +14,7 @@ function showList() {
     let ul = document.getElementById('customer-list-data');
     ul.innerHTML = 'Lista klientow';
     for (let customer of customersList) {
-        ul.innerHTML += `<li>${customer.nazwaFirmy} <button class="btn btn-primary" onclick=showCustomer('${customer.id}')>edytuj</button></li>`;
+        ul.innerHTML += `<li>${customer.getData()} <button class="btn btn-primary" onclick=showCustomer('${customer.getData()}')>edytuj</button></li>`;
     }
 
 }
@@ -33,23 +33,22 @@ function showCustomer(customerId) {
 
 function saveData(event) {
     event.preventDefault();
+    let newCustomer = new Customer();
+    newCustomer.id = Math.floor(Math.random() * 10001)
+    newCustomer.nazwaFirmy = document.getElementById('nazwaFirmy').value
+    newCustomer.nip = document.getElementById('nip').value
+    newCustomer.miasto = document.getElementById('miasto').value
+    newCustomer.ulica = document.getElementById('ulica').value
+    newCustomer.numerDomu = document.getElementById('numerDomu').value
+    newCustomer.numerMieszkania = document.getElementById('numerMieszkania').value
+    newCustomer.kodPocztowy = document.getElementById('kodPocztowy').value
+    newCustomer.uwagi = document.getElementById('uwagi').value
+    newCustomer.branza = document.getElementById('branza').value
+    newCustomer.aktywny = document.getElementById('aktywny').checked
 
-    let clientData = {
-        id: Math.floor(Math.random() * 10001),
-        nazwaFirmy: document.getElementById('nazwaFirmy').value,
-        nip: document.getElementById('nip').value,
-        miasto: document.getElementById('miasto').value,
-        ulica: document.getElementById('ulica').value,
-        numerDomu: document.getElementById('numerDomu').value,
-        numerMieszkania: document.getElementById('numerMieszkania').value,
-        kodPocztowy: document.getElementById('kodPocztowy').value,
-        uwagi: document.getElementById('uwagi').value,
-        branza: document.getElementById('branza').value,
-        aktywny: document.getElementById('aktywny').checked
-    };
 
-    console.log(clientData);
-    customersList.push(clientData);
+    console.log(newCustomer);
+    customersList.push(newCustomer);
     showList()
     console.log(customersList);
 
