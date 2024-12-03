@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Customer } from '../../models/customer';
 import { Invoice } from '../../models/invoice';
+import { CustomerService } from '../../services/customer.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-form',
@@ -10,6 +12,18 @@ import { Invoice } from '../../models/invoice';
 })
 export class CustomerFormComponent {
 
+  constructor(
+    private customerService: CustomerService,
+    private router: Router
+  ) { }
+
   customer: Customer = new Customer();
-  invoice: Invoice = new Invoice();
+
+  handleSubmit() {
+    console.log(this.customer)
+    this.customerService.addCustomer(this.customer);
+    this.router.navigate(['/invoice/customer-list']);
+  }
+
+  
 }

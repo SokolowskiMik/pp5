@@ -1,1 +1,8 @@
-<p>customer-list works!</p>
+<!-- <p *ngFor="let customer of customersList; index as i">
+    {{ customer.nazwaFirmy }}
+</p> -->
+<app-customer-list-element *ngFor="let customer of customersList; index as i;">
+    {{ customer.nazwaFirmy }}
+</app-customer-list-element>
+
+<button (ngClick)="redirect()">dodaj nowy</button>

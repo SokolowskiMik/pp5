@@ -2,42 +2,42 @@
     <h1 id="login-form">Form</h1>
     <div class="container mt-5">
         <h2>Formularz wprowadzenia klienta</h2>
-        <form id="clientForm" onsubmit="return saveData(event)">
+        <form id="clientForm" (ngSubmit)="handleSubmit()">
             <div class="form-group">
                 <label for="nazwaFirmy">Nazwa firmy *</label>
-                <input type="text" class="form-control" id="nazwaFirmy" required>
+                <input type="text" class="form-control" name="nazwaFirmy" [(ngModel)]="customer.nazwaFirmy" id="nazwaFirmy" required>
             </div>
             <div class="form-group">
                 <label for="nip">NIP *</label>
-                <input type="text" class="form-control" id="nip" required>
+                <input type="text" class="form-control" name="nip" [(ngModel)]="customer.nip" id="nip" required>
             </div>
             <div class="form-group">
                 <label for="miasto">Miasto *</label>
-                <input type="text" class="form-control" id="miasto" required>
+                <input type="text" class="form-control" name="miasto" [(ngModel)]="customer.miasto" id="miasto" required>
             </div>
             <div class="form-group">
                 <label for="ulica">Ulica *</label>
-                <input type="text" class="form-control" id="ulica" required>
+                <input type="text" class="form-control" name="ulica" [(ngModel)]="customer.ulica" id="ulica" required>
             </div>
             <div class="form-group">
                 <label for="numerDomu">Numer domu *</label>
-                <input type="text" class="form-control" id="numerDomu" required>
+                <input type="text" class="form-control" name="numerDomu" [(ngModel)]="customer.numerDomu" id="numerDomu" required>
             </div>
             <div class="form-group">
                 <label for="numerMieszkania">Numer mieszkania</label>
-                <input type="text" class="form-control" id="numerMieszkania">
+                <input type="text" class="form-control" name="numerMieszkania" [(ngModel)]="customer.numerMieszkania" id="numerMieszkania">
             </div>
             <div class="form-group">
                 <label for="kodPocztowy">Kod pocztowy</label>
-                <input type="text" class="form-control" id="kodPocztowy">
+                <input type="text" class="form-control" name="kodPocztowy" [(ngModel)]="customer.kodPocztowy" id="kodPocztowy">
             </div>
             <div class="form-group">
                 <label for="uwagi">Uwagi</label>
-                <textarea class="form-control" id="uwagi" rows="3"></textarea>
+                <textarea class="form-control" name="uwagi" [(ngModel)]="customer.uwagi" id="uwagi" rows="3"></textarea>
             </div>
             <div class="form-group">
                 <label for="branza">Branża</label>
-                <select class="form-select" id="branza" aria-label="Default select example" required>
+                <select class="form-select" name="branza" [(ngModel)]="customer.branza" id="branza" aria-label="Default select example" required>
                     <option selected disabled value="">Wybierz branżę</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -45,7 +45,7 @@
                 </select>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Aktywny" id="aktywny">
+                <input class="form-check-input" type="checkbox" value="Aktywny" name="aktywny" [(ngModel)]="customer.aktywny" id="aktywny">
                 <label class="form-check-label" for="aktywny">
                     Aktywny
                 </label>
@@ -57,3 +57,4 @@
         </form>
     </div>
 </div>
+{{customer|json}}
