@@ -21,6 +21,7 @@ export class CustomerListComponent {
 
   }
   redirect() {
+    console.log("dfasdfasdfa")
     this.router.navigate(['/invoice/customer-form']);
   }
 }

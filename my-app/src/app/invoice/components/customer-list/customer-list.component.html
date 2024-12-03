@@ -1,8 +1,4 @@
-<!-- <p *ngFor="let customer of customersList; index as i">
+<p *ngFor="let customer of customersList; let i = index">
     {{ customer.nazwaFirmy }}
-</p> -->
-<app-customer-list-element *ngFor="let customer of customersList; index as i;">
-    {{ customer.nazwaFirmy }}
-</app-customer-list-element>
-
-<button (ngClick)="redirect()">dodaj nowy</button>
+</p>
+<button (click)="redirect()">dodaj nowy</button>
