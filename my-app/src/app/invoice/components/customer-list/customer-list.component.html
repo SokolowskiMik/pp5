@@ -1,4 +1,7 @@
-<p *ngFor="let customer of customersList; let i = index">
-    {{ customer.nazwaFirmy }}
-</p>
-<button (click)="redirect()">dodaj nowy</button>
+<app-customer-list-element 
+*ngFor="let customer of customersList" 
+[customer]="customer"
+(deleteCustomerChildrenEvent)="deleteCustomer($event)"
+></app-customer-list-element>
+
+<button class="btn" (click)="redirect()">dodaj nowy</button>

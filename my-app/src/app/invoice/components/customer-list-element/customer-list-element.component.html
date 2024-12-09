@@ -1,1 +1,4 @@
-{{ customer.nazwaFirmy }}
+<li class="list-group-item"
+    [ngStyle]="{'color': !customer.aktywny ? 'red' : ''}">{{ customer.getData() }}</li>
+
+<button class="btn btn-danger" (click)="deleteCustomer()">X</button>
