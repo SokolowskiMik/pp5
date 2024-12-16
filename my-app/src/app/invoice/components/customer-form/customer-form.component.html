@@ -2,10 +2,13 @@
     <h1 id="login-form">Form</h1>
     <div class="container mt-5">
         <h2>Formularz wprowadzenia klienta</h2>
-        <form id="clientForm" (ngSubmit)="handleSubmit()">
+        <form #f="ngForm" id="clientForm" (ngSubmit)="handleSubmit(f)">
             <div class="form-group">
                 <label for="nazwaFirmy">Nazwa firmy *</label>
-                <input type="text" class="form-control" name="nazwaFirmy" [(ngModel)]="customer.nazwaFirmy" id="nazwaFirmy" required>
+                <input type="text" class="form-control" name="nazwaFirmy" #nazwaFirmy="ngModel" [(ngModel)]="customer.nazwaFirmy" id="nazwaFirmy" required>
+                <div class="invalid-feedback" [hidden]="nazwaFirmy.valid || nazwaFirmy.untouched" class="alert alert-danger">
+                    Pole nazwa firmy nie może być puste
+                </div>
             </div>
             <div class="form-group">
                 <label for="nip">NIP *</label>
@@ -51,7 +54,7 @@
                 </label>
             </div>
             <!-- <button type="submit" class="btn btn-primary">Zatwierdź</button> -->
-            <button type="submit" class="btn btn-primary" id="zapiszBtn">Zapisz</button>
+            <button type="submit" class="btn btn-primary" id="zapiszBtn" [disabled]="f.invalid">Zapisz</button>
             <button type="button" class="btn btn-secondary" id="wstawDaneBtn" onclick="addDataToForm(getCustomer())">Wstaw Dane</button>
             <button type="button" class="btn btn-secondary" id="wstawPusteDaneBtn" onclick="addDataToForm(getEmptyCustomer())">Wstaw Puste Dane</button>
         </form>
