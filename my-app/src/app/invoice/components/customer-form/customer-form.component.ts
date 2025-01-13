@@ -20,12 +20,17 @@ export class CustomerFormComponent {
 
   customer: Customer = new Customer();
 
-  handleSubmit(ngForm: NgForm) {
-    console.log(ngForm.valid)
-    if(ngForm.valid){
-      console.log(this.customer)
-      this.customerService.addCustomer(this.customer);
-      this.router.navigate(['/invoice/customer-list']);
+  handleSubmit(form: NgForm) {
+    console.log(form.valid)
+    if(form.valid){
+      this.customerService.addCustomer(this.customer)
+      .subscribe((data: Customer) => {
+        console.log(data)
+        this.router.navigate(['/invoice/customer-list']);
+      })
+    }
+    else{
+      console.error("popraw forma")
     }
   }
 }

@@ -1,30 +1,48 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../models/customer';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, map } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CustomerService {
 
-  constructor() { }
+  private baseUrl: string = "http://localhost:3000/customer"
 
   private customersList: Customer[] = [];
+  
+  constructor(
+    private httpClient: HttpClient
+  ) {}
 
-  addCustomer(customer: Customer) {
-    this.customersList.push(customer);
-    console.log('zawartość Service:', this.customersList);
-    
+
+
+  addCustomer(customer: Customer): Observable<Customer> {
+    return this.httpClient.post<Customer>(this.baseUrl, customer);
+    // this.customersList.push(customer);
+    // console.log('zawartość Service:', this.customersList);
+    // return this.customersList
   }
 
-  getCustomers() : Customer[] {
-    return this.customersList;
+  getCustomers() : Observable<Customer[]> {
+    // return this.customersList;
+    return this.httpClient.get<Customer[]>(this.baseUrl)
+    .pipe(
+      map((customers: Customer[]) =>
+        customers.map((customer) => new Customer().deserialize(customer))
+      )
+    )
   }
 
-  removeCustomer(customer: Customer) {
-    console.log('Klient ma usunac:', customer)
-    this.customersList = this.customersList.filter((x: Customer) => {
-      return x.nip !== customer.nip;
-    })
-    return this.customersList;
+  removeCustomer(customer: Customer): Observable<Customer>  {
+    const headers : HttpHeaders = new HttpHeaders({
+      'CorrelationId': 'haslo_haslo'
+    });
+    return this.httpClient.delete<Customer>(this.baseUrl + '/' + customer.id, {headers})
+  //   console.log('Klient ma usunac:', customer)
+  //   this.customersList = this.customersList.filter((x: Customer) => {
+  //     return x.nip !== customer.nip;
+  //   })
+  //   return this.customersList;
+  // 
   }
 }

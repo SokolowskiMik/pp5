@@ -25,7 +25,7 @@ export class CustomerListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.customersList = this.customerService.getCustomers();
+    this.getCustomers()
   }
 
   redirect() {
@@ -35,6 +35,17 @@ export class CustomerListComponent implements OnInit, OnDestroy {
 
   deleteCustomer(customer:Customer){
     console.log('rodzic ma usunac:', customer)
-    this.customersList = this.customerService.removeCustomer(customer)
+    this.customerService.removeCustomer(customer).subscribe((data: Customer) => {
+      console.log(data);
+      this.getCustomers();
+      }
+    )
+  }
+
+  getCustomers(){
+    this.customerService.getCustomers().subscribe((data: Customer[]) => {
+      console.log(data);
+      this.customersList = data;
+    })
   }
 }

@@ -1,0 +1,69 @@
+{
+  "customer": [
+    {
+      "id": "",
+      "nazwaFirmy": "dasfs",
+      "nip": "12345",
+      "miasto": "fad",
+      "ulica": "fda",
+      "numerDomu": "adsfasdf",
+      "numerMieszkania": "",
+      "kodPocztowy": "",
+      "uwagi": "",
+      "branza": "1",
+      "aktywny": true
+    },
+    {
+      "id": "",
+      "nazwaFirmy": "adfsa",
+      "nip": "1231",
+      "miasto": "dafsadf",
+      "ulica": "afdaf",
+      "numerDomu": "adfsaf",
+      "numerMieszkania": "",
+      "kodPocztowy": "",
+      "uwagi": "",
+      "branza": "2",
+      "aktywny": true
+    },
+    {
+      "id": "",
+      "nazwaFirmy": "dfasafsdf",
+      "nip": "sdafsdf",
+      "miasto": "sdfaasdf",
+      "ulica": "sdfasadf",
+      "numerDomu": "asfdafd",
+      "numerMieszkania": "",
+      "kodPocztowy": "",
+      "uwagi": "",
+      "branza": "1",
+      "aktywny": true
+    },
+    {
+      "id": "",
+      "nazwaFirmy": "asdfaf",
+      "nip": "dsafasdf",
+      "miasto": "sdf",
+      "ulica": "asfsadf",
+      "numerDomu": "asdfsadf",
+      "numerMieszkania": "",
+      "kodPocztowy": "",
+      "uwagi": "",
+      "branza": "1",
+      "aktywny": true
+    },
+    {
+      "id": "",
+      "nazwaFirmy": "adfsf",
+      "nip": "sadfasfdsafsadf",
+      "miasto": "sadfasdf",
+      "ulica": "adsfasdf",
+      "numerDomu": "adsfsaf",
+      "numerMieszkania": "adfasf",
+      "kodPocztowy": "afdsfd",
+      "uwagi": "afdasdf",
+      "branza": "2",
+      "aktywny": true
+    }
+  ]
+}

@@ -1,4 +1,6 @@
 export class Customer {
+    constructor(){}
+
     id: string = "";
     nazwaFirmy: string = "";
     nip: string = "";
@@ -17,6 +19,11 @@ export class Customer {
 
     getAddress(){
         return `Miasto: ${this.miasto}, kod pocztowy: ${this.kodPocztowy}, numer mieszkania: ${this.numerMieszkania}`
+    }
+
+    deserialize(input: any): Customer{
+        Object.assign(this, input);
+        return this;
     }
 }
 
