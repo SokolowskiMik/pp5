@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Customer } from '../../models/customer';
-import { Invoice } from '../../models/invoice';
 import { CustomerService } from '../../services/customer.service';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';

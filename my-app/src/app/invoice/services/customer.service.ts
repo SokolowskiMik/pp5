@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Customer } from '../models/customer';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
+import { environment } from '../../../environments/environment.development';
 
 @Injectable()
 export class CustomerService {
 
-  private baseUrl: string = "http://localhost:3000/customer"
+  private baseUrl: string = environment.apiUrl + '/customer/'
 
   private customersList: Customer[] = [];
   

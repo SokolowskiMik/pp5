@@ -64,6 +64,19 @@
       "uwagi": "afdasdf",
       "branza": "2",
       "aktywny": true
+    },
+    {
+      "id": "",
+      "nazwaFirmy": "asdfas",
+      "nip": "afd",
+      "miasto": "asdf",
+      "ulica": "adf",
+      "numerDomu": "asdf",
+      "numerMieszkania": "asdf",
+      "kodPocztowy": "asdf",
+      "uwagi": "adsf",
+      "branza": "2",
+      "aktywny": true
     }
   ]
 }
